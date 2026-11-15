@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fred business tracker</track></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">S</div><div><strong>Fredzz</strong><small>MY BUSINESS, SIMPLIFIED</small></div></div>
+      <div class="workspace"><span class="workspace-dot"></span><span>My Business</span><span class="chevron">⌄</span></div>
+      <nav>
+        <button class="nav-link active" data-page="dashboard"><span></span> Overview</button>
+        <button class="nav-link" data-page="assistant"><span></span> AI Assistant</button>
+        <button class="nav-link" data-page="transactions"><span></span> Sales & Expenses</button>
+        <button class="nav-link" data-page="customers"><span></span> Customers</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <button class="nav-link" data-page="settings"><span>⚙</span> Settings</button>
+        <div class="sidebar-note">Browser prototype<br><span>Your data stays in this browser.</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><div class="eyebrow" id="page-eyebrow">BUSINESS OVERVIEW</div><h1 id="page-title">Good day</h1></div>
+        <div class="top-actions"><span class="local-pill"><i></i> Local workspace</span><div class="avatar">MB</div></div>
+      </header>
+
+      <section class="page active" id="page-dashboard">
+        <div class="welcome-banner">
+          <div><div class="banner-kicker">SMARTBIZ AI WORKSPACE</div><h2>Make smarter business decisions.</h2><p>Track your numbers, understand your customers, and get practical help from your AI assistant.</p><button class="button button-light" data-go="assistant">Ask your AI assistant <span>→</span></button></div>
+          <div class="banner-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="spark">✦</div><div class="art-card">AI<br><b>INSIGHTS</b></div></div>
+        </div>
+        <div class="section-heading"><div><h3>Business snapshot</h3><p>Based on the records saved in this browser.</p></div><button class="button button-outline" data-go="transactions">＋ Add transaction</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total sales</span><span class="stat-icon green">↗</span></div><strong id="stat-sales">₱0.00</strong><small>Recorded income</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Total expenses</span><span class="stat-icon orange">↘</span></div><strong id="stat-expenses">₱0.00</strong><small>Recorded spending</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Net balance</span><span class="stat-icon purple">₱</span></div><strong id="stat-balance">₱0.00</strong><small>Sales minus expenses</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Customers</span><span class="stat-icon blue">♙</span></div><strong id="stat-customers">0</strong><small>Saved customer records</small></article>
+        </div>
+        <div class="dashboard-grid">
+          <article class="panel"><div class="panel-heading"><div><h3>Recent transactions</h3><p>Your latest business activity</p></div><button class="text-button" data-go="transactions">View all →</button></div><div id="recent-transactions" class="table-wrap"></div></article>
+          <article class="panel insight-panel"><div class="panel-heading"><div><h3>Quick AI help</h3><p>Start with a business question</p></div><span class="ai-star">✦</span></div><div class="prompt-list"><button data-prompt="Give me 3 practical ways to increase sales for a small business in the Philippines.">How can I increase sales?</button><button data-prompt="Help me understand how to control business expenses.">How can I reduce expenses?</button><button data-prompt="What business metrics should I monitor every week?">What should I monitor weekly?</button></div><button class="button button-primary full" data-go="assistant">Open AI assistant</button></article>
+        </div>
+      </section>
+
+      <section class="page" id="page-assistant">
+        <div class="assistant-layout">
+          <div class="panel chat-panel">
+            <div class="chat-header"><div class="ai-avatar">✦</div><div><h3>SmartBiz AI Assistant</h3><p><span class="online-dot"></span> Ready to help with your business</p></div><button class="text-button" id="clear-chat">Clear chat</button></div>
+            <div class="chat-messages" id="chat-messages"><div class="message assistant-message"><div class="message-avatar">✦</div><div class="bubble"><b>Hello! I'm your SmartBiz AI assistant.</b><p>I can help you think through sales, marketing, pricing, customer service, and business operations. Add your Gemini API key in Settings to enable AI responses.</p></div></div></div>
+            <div class="chat-composer"><textarea id="chat-input" rows="1" placeholder="Ask something about your business..."></textarea><button class="send-button" id="send-chat" aria-label="Send message">↑</button></div>
+            <div class="chat-footnote">AI can make mistakes. Check important business decisions before acting.</div>
+          </div>
+          <aside class="panel context-panel"><h3>Business context</h3><p>The assistant can use the totals below to tailor its advice.</p><div class="context-row"><span>Recorded sales</span><b id="context-sales">₱0.00</b></div><div class="context-row"><span>Recorded expenses</span><b id="context-expenses">₱0.00</b></div><div class="context-row"><span>Customers</span><b id="context-customers">0</b></div><div class="context-tip"><span>✦</span> Add transactions and customers to give your assistant more context.</div><button class="button button-outline full" data-go="settings">Configure Gemini</button></aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-transactions">
+        <div class="section-heading"><div><h3>Sales & expenses</h3><p>Record income and spending for your business.</p></div><button class="button button-primary" id="open-transaction">＋ Add transaction</button></div>
+        <div class="panel"><div id="all-transactions" class="table-wrap"></div></div>
+      </section>
+
+      <section class="page" id="page-customers">
+        <div class="section-heading"><div><h3>Customers</h3><p>Keep basic contact details in one place.</p></div><button class="button button-primary" id="open-customer">＋ Add customer</button></div>
+        <div class="panel"><div id="customers-list" class="table-wrap"></div></div>
+      </section>
+
+      <section class="page" id="page-settings">
+        <div class="settings-grid">
+          <article class="panel settings-card"><div class="settings-icon">✦</div><h3>Gemini AI connection</h3><p>Connect your Google Gemini API key to enable AI-generated business guidance.</p><label for="api-key">Gemini API key</label><input id="api-key" type="password" placeholder="Paste your Gemini API key"><label for="model-name">Model name</label><input id="model-name" value="gemini-2.5-flash"><div class="settings-actions"><button class="button button-primary" id="save-key">Use key for this session</button><span id="key-status" class="status-text">No key connected</span></div><div class="warning-box"><b>Prototype security notice</b><br>This browser-only prototype sends requests directly from your browser to Google. Your key is not stored in the project files, but anyone with access to this browser session could inspect it. Do not use this setup for a public SaaS or share your key. A secure server is required before launch.</div><p class="small-help">Create a key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a>. Usage may incur charges or be subject to Google's limits.</p></article>
+          <article class="panel settings-card"><div class="settings-icon neutral">▤</div><h3>Your browser data</h3><p>Transactions and customers are saved locally in this browser using local storage. They are not synced across devices or users.</p><div class="data-actions"><button class="button button-outline" id="export-data">Export my data (JSON)</button><button class="button button-danger" id="clear-data">Delete all local business data</button></div><div class="warning-box neutral-box">This is a single-browser prototype, not yet a multi-business SaaS. Do not enter sensitive customer or financial information.</div></article>
+        </div>
+      </section>
+      <footer>SmartBiz AI <span>•</span> Browser prototype <span>•</span> Not yet for production use</footer>
+    </main>
+  </div>
+
+  <dialog id="transaction-dialog" class="modal">
+    <form id="transaction-form" method="dialog"><div class="modal-heading"><div><h3>Add transaction</h3><p>Record a sale or business expense.</p></div><button type="button" class="close-button" data-close="transaction-dialog">×</button></div>
+      <label for="transaction-type">Type</label><select id="transaction-type"><option value="sale">Sale / Income</option><option value="expense">Expense</option></select>
+      <label for="transaction-description">Description</label><input id="transaction-description" required placeholder="e.g. Product sale, rent, supplies">
+      <label for="transaction-amount">Amount (PHP)</label><input id="transaction-amount" type="number" min="0.01" step="0.01" required placeholder="0.00">
+      <label for="transaction-date">Date</label><input id="transaction-date" type="date" required>
+      <div class="modal-actions"><button type="button" class="button button-outline" data-close="transaction-dialog">Cancel</button><button class="button button-primary" type="submit">Save transaction</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="customer-dialog" class="modal">
+    <form id="customer-form" method="dialog"><div class="modal-heading"><div><h3>Add customer</h3><p>Save a customer contact.</p></div><button type="button" class="close-button" data-close="customer-dialog">×</button></div>
+      <label for="customer-name">Customer name</label><input id="customer-name" required placeholder="Full name or business name">
+      <label for="customer-contact">Contact (optional)</label><input id="customer-contact" placeholder="Email or phone">
+      <label for="customer-notes">Notes (optional)</label><textarea id="customer-notes" rows="3" placeholder="Preferences, follow-up notes..."></textarea>
+      <div class="modal-actions"><button type="button" class="button button-outline" data-close="customer-dialog">Cancel</button><button class="button button-primary" type="submit">Save customer</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
