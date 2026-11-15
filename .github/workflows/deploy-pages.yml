@@ -1,11 +1,11 @@
-name: Deploy SmartBiz AI to GitHub Pages
+name: Deploy Fredzz to GitHub Pages
 
 on:
   push:
     branches: ["main"]
     paths:
       - "index.html"
-      - "alfred/smartbiz-ai-browser/**"
+      - "app/**"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
 
