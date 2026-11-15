@@ -4,6 +4,7 @@ on:
   push:
     branches: ["main"]
     paths:
+      - "index.html"
       - "alfred/smartbiz-ai-browser/**"
       - ".github/workflows/deploy-pages.yml"
   workflow_dispatch:
@@ -31,7 +32,7 @@ jobs:
       - name: Upload website files
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./alfred/smartbiz-ai-browser"
+          path: "."
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
